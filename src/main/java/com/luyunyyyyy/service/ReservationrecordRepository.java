@@ -13,5 +13,5 @@ import java.util.Collection;
 public interface ReservationrecordRepository extends JpaRepository<Reservationrecord,Long> {
 
     @RestResource(path="recordUserId",rel="recordUserId")
-    public Collection<Reservationrecord> findByRecordUserId(@Param("recordUserId") Long id);
+    Collection<Reservationrecord> findByRecordUserId(@Param("recordUserId") Long id);
 }

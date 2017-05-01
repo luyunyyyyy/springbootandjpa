@@ -12,8 +12,8 @@ import java.util.Collection;
  */
 public interface LocationRepository extends JpaRepository<Location,Long> {
     @RestResource(path="locationFloor",rel="locationFloor")
-    public Collection<Location> findByLocationFloor(@Param("locationFloor") Long locationFloor);
+    Collection<Location> findByLocationFloor(@Param("locationFloor") Long locationFloor);
 
     @RestResource(path="locationPart",rel="locationPart")
-    public Collection<Location> findByLocationPart(@Param("locationPart") Long locationFloor);
+    Collection<Location> findByLocationPart(@Param("locationPart") Long locationFloor);
 }

@@ -1,6 +1,5 @@
 package com.luyunyyyyy.service;
 
-import com.luyunyyyyy.domain.Reservationrecord;
 import com.luyunyyyyy.domain.Violationsrecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
@@ -14,5 +13,5 @@ import java.util.Collection;
 public interface ViolationsrecordRepository extends JpaRepository<Violationsrecord,Long> {
 
     @RestResource(path="violationsUserId",rel="violationsUserId")
-    public Collection<Violationsrecord> findByViolationsUserId(@Param("violationsUserId") Long id);
+    Collection<Violationsrecord> findByViolationsUserId(@Param("violationsUserId") Long id);
 }
