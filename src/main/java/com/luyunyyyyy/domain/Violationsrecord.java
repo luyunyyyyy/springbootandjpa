@@ -1,10 +1,12 @@
-package domain;
+package com.luyunyyyyy.domain;
 
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-public class Violationsrecords {
+@Entity
+public class Violationsrecord {
 
   @Id
   @GeneratedValue

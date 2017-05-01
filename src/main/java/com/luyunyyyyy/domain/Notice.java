@@ -1,4 +1,4 @@
-package domain;
+package com.luyunyyyyy.domain;
 
 
 import javax.persistence.Entity;
@@ -11,6 +11,7 @@ public class Notice {
   @Id
   @GeneratedValue
   private long noticeId;
+  @org.hibernate.annotations.CreationTimestamp
   private java.sql.Timestamp noticeTime;
   private String noticeText;
 
