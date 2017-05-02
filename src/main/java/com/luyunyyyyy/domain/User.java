@@ -1,6 +1,8 @@
 package com.luyunyyyyy.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,6 +25,7 @@ public class User {
   private long userId;
   private String userState;
   private String userClass;
+  @JsonIgnore
   private long userSutId;
 
 
