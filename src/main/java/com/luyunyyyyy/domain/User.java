@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity
 public class User {
@@ -19,6 +20,15 @@ public class User {
   private String userCollege;
   private long userGender;
 
+  public Timestamp getUserLastLoginTime() {
+    return userLastLoginTime;
+  }
+
+  public void setUserLastLoginTime(Timestamp userLastLoginTime) {
+    this.userLastLoginTime = userLastLoginTime;
+  }
+
+  private java.sql.Timestamp userLastLoginTime;
 
   @Id
   @GeneratedValue

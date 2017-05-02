@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+
 /**
  * Created by LYY on 2017/5/2.
  */
@@ -25,8 +27,12 @@ public class LoginController {
     public String userLogin(@Param("userSutId") Long userSutId, @Param("userPassword") String userPassword) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         User loginUser = userRepository.findByUserSutId(userSutId);
-        if (loginUser.getUserPassword().equals(userPassword)){
+
+
+        //Timestamp nousedate = new Timestamp(date.getTime());
+        if (loginUser!=null&&loginUser.getUserPassword().equals(userPassword)){
             try {
+                loginUser.setUserLastLoginTime(new Timestamp(System.currentTimeMillis()));
                 return mapper.writeValueAsString(loginUser);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
