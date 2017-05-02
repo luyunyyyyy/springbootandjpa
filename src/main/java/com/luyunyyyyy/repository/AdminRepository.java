@@ -1,4 +1,4 @@
-package com.luyunyyyyy.service;
+package com.luyunyyyyy.repository;
 
 import com.luyunyyyyy.domain.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.luyunyyyyy.service;
+package com.luyunyyyyy.repository;
 
 import com.luyunyyyyy.domain.Desk;
 import org.springframework.data.jpa.repository.JpaRepository;

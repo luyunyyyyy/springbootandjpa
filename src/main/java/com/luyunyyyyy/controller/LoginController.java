@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luyunyyyyy.domain.Response;
 import com.luyunyyyyy.domain.User;
-import com.luyunyyyyy.service.UserRepository;
+import com.luyunyyyyy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;

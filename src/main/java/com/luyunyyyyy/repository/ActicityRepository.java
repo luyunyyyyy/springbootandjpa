@@ -1,4 +1,4 @@
-package com.luyunyyyyy.service;
+package com.luyunyyyyy.repository;
 
 import com.luyunyyyyy.domain.Activity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +11,6 @@ import java.util.Collection;
  * Created by LYY on 2017/5/1.
  */
 public interface ActicityRepository extends JpaRepository<Activity, Long> {
-    @RestResource(path="activityClassroomId",rel="activityClassroomId")
+    @RestResource(path = "activityClassroomId", rel = "activityClassroomId")
     Collection<Activity> findByActivityClassroomId(@Param("activityClassroomId") Long id);
 }
