@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class RecordController {
 
     @Autowired
-    ReservationRecordRepository reservationRecordRepository;
+    private ReservationRecordRepository reservationRecordRepository;
 
     @Autowired
-    DeskRepository deskRepository;
+    private DeskRepository deskRepository;
 
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @RequestMapping(
             "/finishRecord"
     )
