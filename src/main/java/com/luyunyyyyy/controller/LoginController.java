@@ -2,7 +2,7 @@ package com.luyunyyyyy.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.luyunyyyyy.domain.Response;
+import com.luyunyyyyy.response.Response;
 import com.luyunyyyyy.domain.User;
 import com.luyunyyyyy.service.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

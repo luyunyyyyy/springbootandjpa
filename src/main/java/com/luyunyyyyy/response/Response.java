@@ -1,4 +1,4 @@
-package com.luyunyyyyy.domain;
+package com.luyunyyyyy.response;
 
 /**
  * Created by LYY on 2017/5/2.
