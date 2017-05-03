@@ -1,4 +1,4 @@
-package com.luyunyyyyy.domain;
+package com.luyunyyyyy.response;
 
 import java.sql.Timestamp;
 

@@ -1,6 +1,6 @@
 package com.luyunyyyyy.repository;
 
-import com.luyunyyyyy.domain.Reservationrecord;
+import com.luyunyyyyy.domain.ReservationRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -10,8 +10,10 @@ import java.util.Collection;
 /**
  * Created by lyy on 2017/4/27.
  */
-public interface ReservationrecordRepository extends JpaRepository<Reservationrecord,Long> {
+public interface ReservationRecordRepository extends JpaRepository<ReservationRecord,Long> {
 
     @RestResource(path="recordUserId",rel="recordUserId")
-    Collection<Reservationrecord> findByRecordUserId(@Param("recordUserId") Long id);
+    Collection<ReservationRecord> findByRecordUserId(@Param("recordUserId") Long id);
+
+    ReservationRecord findByRecordUserIdAndRecordState(Long id, String recordState);
 }

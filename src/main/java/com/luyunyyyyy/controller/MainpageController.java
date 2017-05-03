@@ -3,27 +3,31 @@ package com.luyunyyyyy.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luyunyyyyy.domain.Location;
-import com.luyunyyyyy.domain.MainpageResponse;
-import com.luyunyyyyy.domain.Response;
+import com.luyunyyyyy.response.MainpageResponse;
 import com.luyunyyyyy.domain.User;
 import com.luyunyyyyy.repository.LocationRepository;
 import com.luyunyyyyy.repository.UserRepository;
+import com.luyunyyyyy.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 /**
  * Created by LYY on 2017/5/2.
  */
+//总共座位 当前剩余座位
+//当前已预约座位
+
 @RestController
 public class MainpageController {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    LocationRepository locationRepository;
+    private LocationRepository locationRepository;
 
 
 
