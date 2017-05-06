@@ -14,6 +14,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+
 /**
  * Created by LYY on 2017/5/3.
  */
@@ -38,12 +40,11 @@ public class RecordController {
         if (temp == null)
             return mapper.writeValueAsString(new Response(400, "订单不存在"));
         temp.setRecordState("已完成");
-        User tempUser = userRepository.findByUserSutId(userStuNumber);
+        User tempUser = userRepository.findOne(userStuNumber);
         if(tempUser==null)
             return mapper.writeValueAsString(new Response(400, "用户不存在"));
-        tempUser.setUserState("正常");
+        tempUser.setUserState("正常");//需要存回去
         return mapper.writeValueAsString(new Response(200, "订单已完成"));
-
     }
 
 
@@ -57,6 +58,7 @@ public class RecordController {
         Desk tempDesk = deskRepository.findOne(recordDeskId);
         if(tempDesk==null)
             return mapper.writeValueAsString(new Response(400, "座位号不存在"));
+        tempDesk.setDeskState("已占用");
         User tempUser = userRepository.findOne(recordUserId);
         if(tempUser==null)
             return mapper.writeValueAsString(new Response(400, "用户不存在"));
@@ -67,6 +69,7 @@ public class RecordController {
         newRecord.setRecordState("进行中");
         newRecord.setRecordDeskId(recordDeskId);
         newRecord.setRecordUserId(recordUserId);
+        newRecord.setRecordDate(new Timestamp(System.currentTimeMillis()));
         reservationRecordRepository.saveAndFlush(newRecord);
         return mapper.writeValueAsString(new Response(200, "新增订单完成"));
 

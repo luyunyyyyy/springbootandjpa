@@ -13,18 +13,27 @@ public class MainpageResponse {
     private String userState;
     private String userMajor;
     private String userCollege;
+    private int deskNumber;
+    private int allDeskNumber;
 
-    public MainpageResponse(Long userSutId, String userName, Timestamp userLastLoginTime, int leftDeskNumber, String userState, String userMajor, String userCollege) {
-        this.userSutId = userSutId;
-        this.userName = userName;
-        this.userLastLoginTime = userLastLoginTime;
-        this.leftDeskNumber = leftDeskNumber;
-        this.userState = userState;
-        this.userMajor = userMajor;
-        this.userCollege = userCollege;
-    }
 
     public MainpageResponse() {
+    }
+
+    public int getDeskNumber() {
+        return deskNumber;
+    }
+
+    public void setDeskNumber(int deskNumber) {
+        this.deskNumber = deskNumber;
+    }
+
+    public int getAllDeskNumber() {
+        return allDeskNumber;
+    }
+
+    public void setAllDeskNumber(int allDeskNumber) {
+        this.allDeskNumber = allDeskNumber;
     }
 
     public Long getUserSutId() {
