@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>图书馆座位预定系统</title>
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/rightmain.css">
+
+</head>
+<body>
+		
+
+       <div class="iframecontent">
+            
+            <div class="pos clearfix"><button class="btn btn-success">我的信息</button><span class="right"><button class="btn btn-info">订单查询</button></span></div>
+              
+           
+                <div class="itabcontent" id="itabcontent">
+                    
+                    <!--站点配置开始-->
+                    <div class="itabcontentlist zdpz">
+                        <dl class="clearfix">
+                            <dt>姓名：</dt>
+                            <dd>
+                                <input type="text" value="我的网站" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>学号：</dt>
+                            <dd>
+                                <input type="text" value="http://www.yxxme.com" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>邮箱：</dt>
+                            <dd>
+                                <input type="text" value="我的网站" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>专业：</dt>
+                            <dd>
+                                <input type="text" value="我的网站" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>学院：</dt>
+                            <dd>
+                                <input type="text" value="我的网站" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>手机号：</dt>
+                            <dd>
+                                <select name="mbfg">
+                                    <option value="1">blog</option>
+                                    <option value="2" selected="selected">default</option>
+                                </select>
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt>创建时间：</dt>
+                            <dd>
+                                <input type="text" value="EmiNaTl9c" />
+                            </dd>
+                        </dl>
+                        <dl class="clearfix">
+                            <dt class="surebtn">保存按钮：</dt>
+                            <dd>
+                                <a href="javascript:;" class="btn btn-blue" />保存</a>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!--站点配置结束-->
+                    
+                </div>
+            </div>
+            
+        </div>
+	
+      <script src="./public/js/jquery-3.1.1.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="./bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+      //alert($)
+
+      $(function(){
+      	 $("#itab ul li").click(function(){
+                    var _id = $(this).index();
+
+                    $(this).addClass('current-item').siblings().removeClass('current-item');
+                    $('#itabcontent').children('.itabcontentlist').eq(_id).fadeIn('fast').siblings('.itabcontentlist').css('display','none');
+                });
+            
+      })
+      </script>
+  </body>
+</html>
