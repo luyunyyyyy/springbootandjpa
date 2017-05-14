@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="css/weui.css" />
+    <script src="js/jquery.js"></script>
+
+    <script type="text/javascript" src="http://malsup.github.io/jquery.form.js"></script>
+    <!-- <link rel="stylesheet" href="./example.css"/> -->
+    <script>
+        function enableStuInput() {
+            document.getElementById("stu_input").style.display = "block";
+        }
+
+        function disableStuInput() {
+            document.getElementById("stu_input").style.display = "none";
+        }
+    </script>
+
+    <script type="text/javascript">
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <div class="page">
+        <div>
+            <form id="signup" name="usersignup" action="signup" method="post">
+                <div class="page__hd">
+                    <h1 class="page__title">用户注册</h1>
+                </div>
+                <div class="page__bd">
+                    <div class="weui-cells__title">用户类别</div>
+                    <div class="weui-cells weui-cells_radio">
+                        <label class="weui-cell weui-check__label" for="x11">
+                          <div class="weui-cell__bd">
+                            <p>学生用户</p>
+                          </div>
+                          <div class="weui-cell__ft">
+                            <input type="radio" class="weui-check" name="radio1" onclick="enableStuInput()" id="x11"/>
+                            <span class="weui-icon-checked"></span>
+                          </div>
+                        </label>
+                        <label class="weui-cell weui-check__label" for="x12">
+                          <div class="weui-cell__bd">
+                            <p>企业用户</p>
+                          </div>
+                          <div class="weui-cell__ft">
+                            <input type="radio" name="radio1" class="weui-check" id="x12" onclick="disableStuInput()" checked="checked"/>
+                            <span class="weui-icon-checked"></span>
+                          </div>
+                        </label>
+                    </div>
+                    <div id="stu_input" style="display: none;">
+                        <div class="weui-cells__title">学生</div>
+                        <div class="weui-cells weui-cells_form">
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd"><label class="weui-label">学生名</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="text" placeholder="请输入学生名" />
+                                </div>
+                            </div>
+
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入学号" />
+                                </div>
+                            </div>
+                            <div class="weui-cell">
+                                <div class="weui-cell__hd"><label class="weui-label">学校</label></div>
+                                <div class="weui-cell__bd">
+                                    <input class="weui-input" type="number" placeholder="请输入学校" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weui-cells__title">账户信息</div>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="text" placeholder="请输入用户名" />
+                            </div>
+                        </div>
+
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="password" placeholder="请输入密码" />
+                            </div>
+                        </div>
+                    </div>
+                    <label for="weuiAgree" class="weui-agree">
+                      <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox"/>
+                      <span class="weui-agree__text">
+                        阅读并同意<a href="javascript:void(0);">《相关条款》</a>
+                      </span>
+                    </label>
+
+
+                    <input type="submit" value="注册" class="weui-btn weui-btn_primary" data-id="input" />
+
+
+                </div>
+            </form>
+
+        </div>
+        <div id="myDiv"></div>
+
+</body>
+
+</html>
