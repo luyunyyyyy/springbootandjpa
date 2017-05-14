@@ -17,7 +17,12 @@ $(document).ready(function(){//页面加载完成再加载脚本
 			$name.focus();
 			return;
 		}
-		$.post(addUserUrl,{username: username, password: password,usertype : "StuUser" ,stuname :stuname,stunumber:stunumber,stuschool:stuschool},
+        $(document).keyup(function(event){
+            if(event.keyCode ==13){
+                $("#login").trigger("click");
+            }
+        });
+		$.post("/login",{userSutId: _name, userPassword: _password},
       function(data){
       alert("Data Loaded: " + data);
       });

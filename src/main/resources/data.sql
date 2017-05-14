@@ -3,11 +3,11 @@ INSERT INTO `libdemo`.`admin` (`admin_email`, `admin_name`, `admin_password`) VA
 INSERT INTO `libdemo`.`admin` (`admin_email`, `admin_name`, `admin_password`) VALUES ('ms@qq.com', 'ms', '222222');
 INSERT INTO `libdemo`.`admin` (`admin_email`, `admin_name`, `admin_password`) VALUES ('lyy@qq.com', 'lyy', '333333');
 --
--- -- 初始化 user
--- INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1507', '软件学院', 'luyunyang1@sohu.com', '1', '软件工程', 'lyy', 'luyunyyyyy', '33333333', '异常', '20154839');
--- INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1508', '软件学院', 'ms@sohu.com', '2', '软件工程', 'ms', 'mashuang', '33333333', '正常', '20154838');
--- INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1505', '软件学院', 'mssss@sohu.com', '1', '软件工程', 'xxx', 'xxxxxxxxxx', '33333333', '正常', '20154333');
---
+-- 初始化 user
+
+INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1507', '软件学院', 'luyunyang1@sohu.com', '1', '软件工程', 'lyy', 'luyunyyyyy', '33333333', '异常', '20154839');
+INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1508', '软件学院', 'ms@sohu.com', '2', '软件工程', 'ms', 'mashuang', '33333333', '正常', '20154838');
+INSERT INTO `libdemo`.`user` (`user_class`, `user_college`, `user_email`, `user_gender`, `user_major`, `user_name`, `user_password`, `user_phone_number`, `user_state`, `user_sut_id`) VALUES ('1505', '软件学院', 'mssss@sohu.com', '1', '软件工程', 'xxx', 'xxxxxxxxxx', '33333333', '正常', '20154333');
 
 -- 初始化 notice
 INSERT INTO `libdemo`.`notice` (`notice_text`) VALUES ('this is notice1');
@@ -34,13 +34,13 @@ INSERT INTO `libdemo`.`desk` (`desk_location_id`, `desk_state`, `desk_text`) VAL
 INSERT INTO `libdemo`.`desk` (`desk_location_id`, `desk_state`, `desk_text`) VALUES ('3', '正常', '正常');
 
 -- 初始化 record
---
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('1', '1');
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('2', '1');
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('2', '2');
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('3', '2');
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('1', '3');
--- INSERT INTO `libdemo`.`reservationrecord` (`Record_desk_id`, `Record_user_id`) VALUES ('3', '3');
+
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('1', '1');
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('2', '1');
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('2', '2');
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('3', '2');
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('1', '3');
+INSERT INTO `libdemo`.`reservation_record` (`Record_desk_id`, `Record_user_id`) VALUES ('3', '3');
 
 -- 初始化 违规
 
