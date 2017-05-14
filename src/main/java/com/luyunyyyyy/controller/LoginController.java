@@ -33,7 +33,7 @@ public class LoginController {
         if (loginUser!=null&&loginUser.getUserPassword().equals(userPassword)){
             try {
                 loginUser.setUserLastLoginTime(new Timestamp(System.currentTimeMillis()));
-                return mapper.writeValueAsString(loginUser);
+                return mapper.writeValueAsString(new Response(200,"登陆成功"));
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
                 return mapper.writeValueAsString(new Response(401,"对象序列化错误"));
