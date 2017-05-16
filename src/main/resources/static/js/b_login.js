@@ -17,23 +17,21 @@ $(document).ready(function(){//页面加载完成再加载脚本
 			$name.focus();
 			return;
 		}
-        $(document).keyup(function(event){
-            if(event.keyCode ==13){
-                $("#login").trigger("click");
-            }
-        });
+
 		$.post("/login",{userSutId: _name, userPassword: _password},
       function(data){
-      alert("Data Loaded: " + data);
+		 // alert("Data Loaded: " + data);
+		  var obj = eval("(" + data + ")");
+		  //alert(obj.responseCode)
+          if(obj.responseCode == 200){
+              $text.text("登陆成功，请稍后...");
+              window.location.href = "/content.html?_name="+_name;
+          }else{
+              $text.text("用户名或密码错误.");
+          }
       });
-	/*
-		if(_name=="admin" &&_password=="admin"){
-			$text.text("登陆成功，请稍后...");
-		    window.location.href = "content.html";
-		}else{
-			$text.text("用户名或密码错误.");
-		}
-		*/
+
+
 
 	});
 
