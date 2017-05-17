@@ -10,7 +10,7 @@ import java.util.Collection;
 /**
  * Created by LYY on 2017/5/1.
  */
-public interface ActicityRepository extends JpaRepository<Activity, Long> {
+public interface ActivityRepository extends JpaRepository<Activity, Long> {
     @RestResource(path = "activityClassroomId", rel = "activityClassroomId")
     Collection<Activity> findByActivityClassroomId(@Param("activityClassroomId") Long id);
 }
