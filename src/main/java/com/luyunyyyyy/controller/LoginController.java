@@ -33,6 +33,7 @@ public class LoginController {
         if (loginUser!=null&&loginUser.getUserPassword().equals(userPassword)){
             try {
                 loginUser.setUserLastLoginTime(new Timestamp(System.currentTimeMillis()));
+                userRepository.saveAndFlush(loginUser);
                 return mapper.writeValueAsString(new Response(200,"登陆成功"));
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
