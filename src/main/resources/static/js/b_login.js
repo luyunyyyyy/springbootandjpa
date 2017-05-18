@@ -1,5 +1,6 @@
 //alert($)
 $(document).ready(function(){//页面加载完成再加载脚本
+
 	$('input[name="button"]').click(function(event){
 		var $name = $('input[name="username"]');
 		var $password = $('input[name="password"]'); 
