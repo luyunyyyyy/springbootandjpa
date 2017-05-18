@@ -44,6 +44,7 @@
                 show.innerHTML = t;
             }, 1000);
         };
+		
 	</script>
 </head>
 
@@ -61,7 +62,7 @@
 			<p>已选座位：</p>
 			<ul id="selected-seats"></ul>
 			<p>座位数：<span id="counter">0</span></p>
-			<button class="checkout-button">确定预定</button>
+			<button class="checkout-button" onClick="sendData()">确定预定</button>
 
 			<div id="legend"></div>
 		</div>
@@ -74,6 +75,25 @@
 <script type="text/javascript" src="jquery.seat-charts.min.js"></script>
 <script type="text/javascript">
     var price = 80; //票价
+	var number;
+	
+	function sendData(){
+			//alert("座位预定成功"+number);
+			var url = window.location.search;
+            var loc = url.substring(url.lastIndexOf('=')+1, url.length);
+			$.post("/addRecord",{recordUserId: loc, recordDeskId: number},
+			function(data){
+		 
+		  var obj = eval("(" + data + ")");
+		  //alert(obj.responseCode)
+          if(obj.responseCode == 200){
+              alert("预定成功");
+              window.location.href = "/main.html?_name="+_name;
+          }else{
+              alert(obj.responseString);
+          }
+      });
+	};
     $(document).ready(function() {
         var $cart = $('#selected-seats'), //座位区
             $counter = $('#counter'), //票数
@@ -102,7 +122,7 @@
                 node : $('#legend'),
                 items : [
                     [ 'a', 'available',   '可选座' ],
-                    [ 'a', 'unavailable', '已售出']
+                    [ 'a', 'unavailable', '已占用']
                 ]
             },
             click: function () { //点击事件
@@ -111,9 +131,9 @@
                         .attr('id', 'cart-item-'+this.settings.id)
                         .data('seatId', this.settings.id)
                         .appendTo($cart);
+						number = (this.settings.row*10)+(this.settings.label);
 
                     $counter.text(sc.find('selected').length+1);
-                    //$total.text(recalculateTotal(sc)+price);
 
                     return 'selected';
                 } else if (this.status() == 'selected') { //已选中
@@ -133,6 +153,7 @@
                 }
             }
         });
+		
         //已售出的座位
         sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
 
