@@ -1,5 +1,6 @@
 package com.luyunyyyyy.controller;
 
+import com.luyunyyyyy.repository.UserRepository;
 import com.luyunyyyyy.repository.ViolationsrecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,13 @@ public class ViolationsrecordController {
     @Autowired
     ViolationsrecordRepository violationsrecordRepository;
 
+    @Autowired
+    UserRepository userRepository;
     @GetMapping("/violationsrecordList")
-    public String violationsrecord(@RequestParam("violationsUserId") Long id, Map<String, Object> model) {
-
-        model.put("violationsrecordList", violationsrecordRepository.findByViolationsUserId(id));
-        System.out.println(violationsrecordRepository.findByViolationsUserId(id).size());
+    public String violationsrecord(@RequestParam("userSutId") Long id, Map<String, Object> model) {
+        Long temp = userRepository.findByUserSutId(id).getUserId();
+        model.put("violationsrecordList", violationsrecordRepository.findByViolationsUserId(temp));
+        System.out.println(violationsrecordRepository.findByViolationsUserId(temp).size());
         return "/violationsRecordList";
 
 

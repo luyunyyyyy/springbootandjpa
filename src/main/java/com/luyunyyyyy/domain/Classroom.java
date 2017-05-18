@@ -3,6 +3,8 @@ package com.luyunyyyyy.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.Collection;
 
 /**
  * Created by LYY on 2017/5/1.
@@ -18,6 +20,15 @@ public class Classroom {
     private int buildingNumber;
     private int floorNumber;
 
+    public Collection<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(Collection<Activity> activities) {
+        this.activities = activities;
+    }
+    @Transient
+    private Collection<Activity> activities;
     public long getClassroomId() {
         return classroomId;
     }

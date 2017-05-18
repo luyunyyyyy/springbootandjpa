@@ -47,3 +47,14 @@
  INSERT INTO `libdemo`.`violationsrecord` (`Violations_user_id`, `Reservation_record_id`) VALUES ('1', '1');
 --
 INSERT INTO `libdemo`.`activity` (`activity_classroom_id`, `activity_detail`) VALUES ('2', 'ceshi3');
+
+
+INSERT INTO `libdemo`.`classroom` (`building_number`, `floor_number`, `room_serial_number`) VALUES ('2', '1', 'A101');
+INSERT INTO `libdemo`.`classroom` (`building_number`, `floor_number`, `room_serial_number`) VALUES ('2', '2', 'A201');
+INSERT INTO `libdemo`.`classroom` (`building_number`, `floor_number`, `room_serial_number`) VALUES ('2', '3', 'A301');
+
+
+INSERT INTO `libdemo`.`activity` (`activity_classroom_id`, `activity_detail`) VALUES ('3', '教室id3 占用');
+INSERT INTO `libdemo`.`activity` (`activity_classroom_id`, `activity_detail`) VALUES ('4', '教室id4 占用');
+INSERT INTO `libdemo`.`activity` (`activity_classroom_id`, `activity_detail`) VALUES ('5', '教室id5 占用');
+INSERT INTO `libdemo`.`activity` (`activity_classroom_id`, `activity_detail`) VALUES ('6', '教室id6 占用');

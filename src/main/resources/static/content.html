@@ -8,8 +8,22 @@
 	<!-- <link rel="stylesheet" type="text/css" href="../public/css/base.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<title>图书馆座位预定系统</title>
+	<script type="text/javascript">
+		function iframeLoad() {
+            var url = window.location.search;
+
+            var loc = url.substring(url.lastIndexOf('=')+1, url.length);
+
+            var _link = "Mainpage"+"?userSutId="+loc;
+            $("#main").attr('src',_link);
+            document.getElementById("rightmain").style.display="block";
+
+        }
+
+
+	</script>
 </head>
-<body>
+<body onload="iframeLoad()">
 
 	<div class="head">
 		<div class="headlogo pull-left">
@@ -32,7 +46,7 @@
 		</ul>
         -->
 		<ul class="headlink pull-right">
-			<li class="link_0"><a href="javascript:;">您好，admin</a></li>
+			<li class="link_0"><a href="javascript:;">用户你好</a></li>
 			<li class="link_1"><a href="javascript:;"><span class="ton">隐藏菜单</span></a></li>
 			<li class="link_2"><a href="javascript:;">首页</a></li>
 			<li class="link_3"><a href="javascript:;">帮助</a></li>
@@ -47,9 +61,9 @@
 				<dt>个人信息</dt>
                 <dd>
 					<ul class="clearfix">
-						<li><a href="javascript:;" _link="webset.html">我的账户</a></li>
-						<li><a href="javascript:;" _link="column.html">历史记录</a></li>
-						<li><a href="javascript:;" _link="column.html">违规记录</a></li>
+						<li><a href="javascript:;" _link="/webset" id="myCount">我的账户</a></li>
+						<li><a href="javascript:;" _link="/recordlist" id="recordList">历史记录</a></li>
+						<li><a href="javascript:;" _link="/violationsrecordList" id="violationsList">违规记录</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -168,7 +182,7 @@
 		</div>
 	</div>
 	<!-- 左边导航结束 -->
-	<div class="rightmain" id="rightmain">
+	<div class="rightmain" id="rightmain" style="display: none">
 		<div class="rightcontent">
 			<iframe src="main.html" id="main" name="main" frameborder="0" scrolling="yes"></iframe>
 		</div>
@@ -179,6 +193,7 @@
       <script src="./bootstrap/js/bootstrap.min.js"></script>
 	  <script src="./public/js/banner.js"></script>
 	  <script type="text/javascript">
+
 	    //导航经过改变宽度和颜色
 		$(".headnav li").click(function(){
 			var index = $(this).index();
@@ -232,11 +247,14 @@
 
 		//左侧导航切换出右侧页面ifream
 		$(".leftmenu dl dd ul li a").click(function(){
-			var _link = $(this).attr('_link');
-			//alert(_link)
-		$("#main").attr('src',_link);
-		$(this).addClass('current-menuleft').parent().siblings().children().removeClass('current-menuleft');
-		$(this).parents('dl').siblings().find('dd ul li a').removeClass('current-menuleft');
+
+            var url = window.location.search;
+            var loc = url.substring(url.lastIndexOf('=')+1, url.length);
+            var _link = $(this).attr('_link')+"?userSutId="+loc;
+
+			$("#main").attr('src',_link);
+			$(this).addClass('current-menuleft').parent().siblings().children().removeClass('current-menuleft');
+			$(this).parents('dl').siblings().find('dd ul li a').removeClass('current-menuleft');
 
 		});
 

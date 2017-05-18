@@ -3,15 +3,17 @@ package com.luyunyyyyy.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.luyunyyyyy.domain.Location;
-import com.luyunyyyyy.response.MainpageResponse;
 import com.luyunyyyyy.domain.User;
 import com.luyunyyyyy.repository.LocationRepository;
 import com.luyunyyyyy.repository.UserRepository;
+import com.luyunyyyyy.response.MainpageResponse;
 import com.luyunyyyyy.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Map;
 
 
 /**
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 //总共座位 当前剩余座位
 //当前已预约座位
 
-@RestController
+@Controller
 public class MainpageController {
 
     @Autowired
@@ -30,10 +32,10 @@ public class MainpageController {
     private LocationRepository locationRepository;
 
 
-    @RequestMapping(
+    @GetMapping(
             "/Mainpage"
     )
-    public String getMainpagePrama(@Param("userSutId") Long userSutId) throws JsonProcessingException {
+    public String getMainpagePrama(@Param("userSutId") Long userSutId,Map<String, Object> model) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         int leftDeskNumber = 0, deskNumber = 0, allDeskNumber = 0;
         if (userSutId == null)
@@ -59,6 +61,7 @@ public class MainpageController {
         mainpageResponse.setLeftDeskNumber(leftDeskNumber);
         mainpageResponse.setDeskNumber(deskNumber);
         mainpageResponse.setAllDeskNumber(allDeskNumber);
-        return mapper.writeValueAsString(mainpageResponse);
+        model.put("mainpage",mainpageResponse);
+        return "/mainpage";
     }
 }
