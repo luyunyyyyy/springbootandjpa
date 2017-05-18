@@ -1,6 +1,5 @@
 package com.luyunyyyyy.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -8,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class SeatInfoController {
-    @RequestMapping(
-            "/seatInfo"
-    )
-    public String getSeatInfo(){
-
-
-
-
-
-
-    }
+//    @RequestMapping(
+//            "/seatInfo"
+//    )
+//    public String getSeatInfo(){
+//
+//
+//
+//
+//
+//
+//    }
 }
