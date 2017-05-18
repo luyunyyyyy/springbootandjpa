@@ -50,20 +50,25 @@
             <table width = "50%" border="1">
                 <tr>
                     <th>教室</th>
-                    <th colspan="2">使用情况</th>    <!-- colspan="2"  占位,表示这一列占2列 -->
+                    <th >教室占用明细</th>    <!-- colspan="2"  占位,表示这一列占2列 -->
                 </tr>
                 <c:forEach var="item" items="${classroom}">
 
                     <tr>
 
-                        <td>${item.roomSerialNumber}</td>
+                        <td rowspan="${fn:length(item.activities)}">${item.roomSerialNumber}</td>
 
+
+                            <td>${item.activities[0].activityDetail}</td>
 
 
 
                     </tr>
-                    <c:forEach var="info" items="${item.activities}">
-                        <td>${info.activityDetail}</td>
+                    <c:forEach var="info" items="${item.activities}" begin="1">
+
+                        <tr>
+                            <td>${info.activityDetail}</td>
+                        </tr>
                     </c:forEach>
                 </c:forEach>
 
