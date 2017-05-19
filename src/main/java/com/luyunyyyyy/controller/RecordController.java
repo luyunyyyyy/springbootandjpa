@@ -64,7 +64,7 @@ public class RecordController {
             return mapper.writeValueAsString(new Response(400, "座位号不存在"));
         tempDesk.setDeskState("已占用");
 
-        User tempUser = userRepository.findOne(recordUserId);
+        User tempUser = userRepository.findByUserSutId(recordUserId);
         if(tempUser==null)
             return mapper.writeValueAsString(new Response(400, "用户不存在"));
         if(tempUser.getUserState().equals("已有订单"))

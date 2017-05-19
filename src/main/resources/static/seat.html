@@ -83,21 +83,22 @@
             var loc = url.substring(url.lastIndexOf('=')+1, url.length);
 			$.post("/addRecord",{recordUserId: loc, recordDeskId: number},
 			function(data){
-		 
-		  var obj = eval("(" + data + ")");
+			    var obj = eval("(" + data + ")");
 		  //alert(obj.responseCode)
           if(obj.responseCode == 200){
               alert("预定成功");
-              window.location.href = "/main.html?_name="+_name;
+              window.location.href = "/main.html?_name="+name;
           }else{
               alert(obj.responseString);
           }
       });
 	};
     $(document).ready(function() {
+
         var $cart = $('#selected-seats'), //座位区
             $counter = $('#counter'), //票数
             $total = $('#total'); //总计金额
+
 
         var sc = $('#seat-map').seatCharts({
             map: [  //座位图
@@ -153,22 +154,26 @@
                 }
             }
         });
-		
+
         //已售出的座位
-        sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('unavailable');
+//		var selec;
+//        $.ajax({
+//            type : "get",
+//            url : "seatInfo",
+//            async : false,
+//            success : function(data){
+//                alert(data);
+//                selec = data;
+//                sc.get(data).status('unavailable');
+//            }
+//        });
+        $.get("/seatInfo",
+            function(data){
+                //sc.get(data).status('unavailable');
+                sc.get(["1_1", "1_2"]).status('unavailable');
+            });
 
     });
-    //计算总金额
-	/*
-	 function recalculateTotal(sc) {
-	 var total = 0;
-	 sc.find('selected').each(function () {
-	 total += price;
-	 });
-
-	 return total;
-	 }
-	 */
 </script>
 </script>
 </body>
