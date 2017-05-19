@@ -41,7 +41,7 @@ public class RecordController {
             return mapper.writeValueAsString(new Response(400, "订单不存在"));
         temp.setRecordState("已完成");
         reservationRecordRepository.saveAndFlush(temp);
-        User tempUser = userRepository.findOne(UserId);
+        User tempUser = userRepository.findByUserSutId(UserId);
         if(tempUser==null)
             return mapper.writeValueAsString(new Response(400, "用户不存在"));
         tempUser.setUserState("正常");//需要存回去

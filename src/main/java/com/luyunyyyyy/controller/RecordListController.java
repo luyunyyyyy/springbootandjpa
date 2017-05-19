@@ -22,8 +22,8 @@ public class RecordListController {
     @GetMapping("/recordlist")
 
     public String test(@RequestParam("userSutId") Long id, Map<String, Object> model) {
-        Long tempId=userRepository.findByUserSutId(id).getUserId();
-        model.put("recordList", reservationRecordRepository.findByRecordUserId(tempId));
+        //Long tempId=userRepository.findByUserSutId(id).getUserId();
+        model.put("recordList", reservationRecordRepository.findByRecordUserId(id));
         System.out.println(reservationRecordRepository.findByRecordUserId(id).size());
         return "/recordlist";
     }
